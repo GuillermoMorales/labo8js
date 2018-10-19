@@ -44,9 +44,17 @@ var formulario = document.getElementById("bitacora");
         descripcion: formulario[2].value,
         cantidad: formulario[3].value
     }
-    bitacoras.push(bitacora);
+    if(formulario[1].value===""|| formulario[2].value ===""||formulario[3].value==="")
+    {
+        alert("Llene todos los campos");
+    }
+    else
+    {
+        bitacoras.push(bitacora);
     cont++;
     mostrar();
+    }
+    
  }); 
  /*¿Qué es lo que contiene formulario[x]? */
  /*Contiene un arreglo de formulario*/
@@ -87,6 +95,7 @@ var formulario = document.getElementById("bitacora");
 
 const agregar= ()=>{
     var eventtr = document.querySelectorAll(".click");
+    
       eventtr.forEach((item, index) => {
       item.addEventListener("click", () => {
       document.querySelector("#fecha").value = item.childNodes[1].textContent;
